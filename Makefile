@@ -30,15 +30,16 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 	$(MAKE) -C ./mlx
 	$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJS)
-	./$(NAME)
 
 clean:
 	rm -f $(OBJS)
 
 fclean:		clean
-	rm -f a.out
+	rm -f $(NAME) 
 
 re:			fclean all
 
 norm:
 	norminette $(SRC)
+
+.PHONY: all .c.o clean fclean re norm
